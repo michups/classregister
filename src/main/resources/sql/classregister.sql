@@ -12,41 +12,41 @@ USE class_register_db;
 
 
 CREATE TABLE grade (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  grade_id int(11) NOT NULL AUTO_INCREMENT,
   number int(1) NOT NULL,
   alfabet_digit varchar(45) NOT NULL,
   year int(4) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (grade_id)
 );
 
 CREATE TABLE student (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  student_id int(11) NOT NULL AUTO_INCREMENT,
   first_name varchar(45) NOT NULL,
   last_name varchar(45) NOT NULL,
   email varchar(45) NOT NULL,
-  grade INT NOT NULL,
+  grade_id INT NOT NULL,
   birth_date DATETIME,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (grade) REFERENCES grade (id)
+  PRIMARY KEY (student_id),
+  FOREIGN KEY (grade_id) REFERENCES grade (grade_id)
 );
 
 CREATE TABLE teacher (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  teacher_id int(11) NOT NULL AUTO_INCREMENT,
   first_name varchar(45) NOT NULL,
   last_name varchar(45) NOT NULL,
   main_class INT ,
   email varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (main_class) REFERENCES grade (id)
+  PRIMARY KEY (teacher_id),
+  FOREIGN KEY (main_class) REFERENCES grade (grade_id)
 );
 
 
 CREATE TABLE teacher_grade (
-	teacher INT NOT NULL,
-  grade INT NOT NULL,
-  PRIMARY KEY (teacher, grade),
-  FOREIGN KEY (teacher) REFERENCES teacher (id),
-  FOREIGN KEY (grade) REFERENCES grade (id)
+	teacher_id INT NOT NULL,
+  grade_id INT NOT NULL,
+  PRIMARY KEY (teacher_id, grade_id),
+  FOREIGN KEY (teacher_id) REFERENCES teacher (teacher_id),
+  FOREIGN KEY (grade_id) REFERENCES grade (grade_id)
 );
 
 INSERT INTO grade (number, alfabet_digit, year) VALUES
@@ -71,7 +71,7 @@ INSERT INTO  teacher (first_name, last_name, main_class, email)VALUES
 ("Melissa",	"ewis", NULL, "melissa@ewis.com");
 
 
-INSERT INTO teacher_grade (teacher, grade)VALUES
+INSERT INTO teacher_grade (teacher_id, grade_id)VALUES
 (1,1),(1,2),(1,3),(1,4),
 (2,1),(2,2),(2,3),(2,7),
 (3,7),(3,6),(3,4),(4,3),
@@ -79,7 +79,7 @@ INSERT INTO teacher_grade (teacher, grade)VALUES
 (7,7),(8,6),(9,3),(10,2);
 
 
-INSERT INTO  student ( first_name , last_name, email,  grade, birth_date) VALUES
+INSERT INTO  student ( first_name , last_name, email,  grade_id, birth_date) VALUES
 
 ("Grace",	  "Cook",     "grace@gmail.com",  1, '1993-07-01'),
 ("Penny",	  "Mccoy",    "penny@gmail.com",  2, '1993-01-02'),
