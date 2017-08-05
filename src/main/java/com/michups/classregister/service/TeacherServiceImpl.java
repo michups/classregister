@@ -5,6 +5,7 @@ import com.michups.classregister.DAO.TeacherDAO;
 import com.michups.classregister.entity.Grade;
 import com.michups.classregister.entity.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 /**
  * Created by michups on 03.08.17.
  */
+@Service
 public class TeacherServiceImpl implements TeacherService{
 
     @Autowired

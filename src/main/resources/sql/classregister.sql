@@ -34,10 +34,10 @@ CREATE TABLE teacher (
   teacher_id int(11) NOT NULL AUTO_INCREMENT,
   first_name varchar(45) NOT NULL,
   last_name varchar(45) NOT NULL,
-  main_class INT ,
+  grade_id INT ,
   email varchar(45) DEFAULT NULL,
   PRIMARY KEY (teacher_id),
-  FOREIGN KEY (main_class) REFERENCES grade (grade_id)
+  FOREIGN KEY (grade_id) REFERENCES grade (grade_id)
 );
 
 
@@ -58,7 +58,7 @@ INSERT INTO grade (number, alfabet_digit, year) VALUES
 (2, 'c', 1998),
 (3, 'a', 1997);
 
-INSERT INTO  teacher (first_name, last_name, main_class, email)VALUES
+INSERT INTO  teacher (first_name, last_name, grade_id, email)VALUES
 ("Irene",	"Cooper", NULL, "irene@cooper.com"),
 ("Kenneth",	"Reed", 1, "kenneth@reed.com"),
 ("James",	"Coleman", 2, "james@coleman.com"),
