@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +15,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "teacher")
-public class Teacher {
+public class Teacher implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,14 +30,14 @@ public class Teacher {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grade_id", nullable = false)
-    private Grade mainClass;
+    public Grade mainClass;
 
     @Column(name = "email")
     private String email;
 
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "teachers")
-    private Set<Grade> grades = new HashSet<>(0);
+    public Set<Grade> grades = new HashSet<>(0);
 
     @Override
     public String toString() {

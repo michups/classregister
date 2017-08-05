@@ -2,8 +2,10 @@ package com.michups.classregister.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +15,7 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "student")
-public class Student {
+public class Student  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +33,11 @@ public class Student {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grade_id", nullable = false)
-    private Grade grade;
+    public Grade gradeId;
 
     @Column(name = "birth_date")
-    private Date bithDate;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private Date birthDate;
 
     @Override
     public String toString() {
@@ -43,8 +46,10 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", grade=" + grade +
-                ", bithDate=" + bithDate +
+                ", grade=" + gradeId +
+                ", birthDate=" + birthDate +
                 '}';
     }
+
+
 }
