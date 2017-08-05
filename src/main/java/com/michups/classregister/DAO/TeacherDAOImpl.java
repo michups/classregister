@@ -1,7 +1,9 @@
 package com.michups.classregister.DAO;
 
+import com.michups.classregister.entity.Grade;
 import com.michups.classregister.entity.Student;
 import com.michups.classregister.entity.Teacher;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -36,6 +38,11 @@ public class TeacherDAOImpl implements TeacherDAO {
 
         List<Teacher> teacher = query.getResultList();
 
+        for (Teacher t : teacher){
+            Hibernate.initialize(t.grades);
+            Hibernate.initialize(t.mainClass);
+        }
+
         return teacher;
     }
 
@@ -43,6 +50,8 @@ public class TeacherDAOImpl implements TeacherDAO {
     public Teacher getTeacher(int id) {
         Session session = myTransactionManager.getCurrentSession();
         Teacher teacher = session.get(Teacher.class, id);
+        Hibernate.initialize(teacher.grades);
+        Hibernate.initialize(teacher.mainClass);
         return teacher;
     }
 

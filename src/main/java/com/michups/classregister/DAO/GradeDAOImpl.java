@@ -1,6 +1,8 @@
 package com.michups.classregister.DAO;
 
 import com.michups.classregister.entity.Grade;
+import com.michups.classregister.entity.Student;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -30,10 +32,13 @@ public class GradeDAOImpl implements GradeDAO {
     @Override
     public List<Grade> getGrades() {
         Session session = sessionFactory.getCurrentSession();
-        Query<Grade> query = session.createQuery("from Customer order by lastName",
+        Query<Grade> query = session.createQuery("from Grade ",
                                                     Grade.class);
 
         List<Grade> grade = query.getResultList();
+        for (Grade g : grade){
+            Hibernate.initialize(g.teachers);
+        }
 
         return grade;
     }
@@ -42,6 +47,7 @@ public class GradeDAOImpl implements GradeDAO {
     public Grade getGrade(int id) {
         Session session = sessionFactory.getCurrentSession();
         Grade grade = session.get(Grade.class, id);
+            Hibernate.initialize(grade.teachers);
         return grade;
     }
 
@@ -49,8 +55,8 @@ public class GradeDAOImpl implements GradeDAO {
     public void delete(int id) {
         Session session = sessionFactory.getCurrentSession();
 
-        Query theQuery = session.createQuery("delete from Customer where id=:customerId");
-        theQuery.setParameter("customerId", id);
+        Query theQuery = session.createQuery("delete from Grade where id=:gradeId");
+        theQuery.setParameter("gradeId", id);
         theQuery.executeUpdate();
 
     }

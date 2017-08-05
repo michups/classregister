@@ -2,6 +2,7 @@ package com.michups.classregister.DAO;
 
 import com.michups.classregister.entity.Grade;
 import com.michups.classregister.entity.Student;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -35,6 +36,9 @@ public class StudentDAOImpl implements StudentDAO {
                 Student.class);
 
         List<Student> student = query.getResultList();
+        for (Student s : student){
+            Hibernate.initialize(s.gradeId);
+        }
 
         return student;
     }
@@ -43,6 +47,9 @@ public class StudentDAOImpl implements StudentDAO {
     public Student getStudent(int id) {
         Session session = sessionFactory.getCurrentSession();
         Student student = session.get(Student.class, id);
+
+        Hibernate.initialize(student.gradeId);
+
         return student;
     }
 
