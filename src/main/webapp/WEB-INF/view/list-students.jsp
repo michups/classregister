@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Students</title>
@@ -49,7 +50,7 @@
                         <td>${tempStudent.lastName}</td>
                         <td>${tempStudent.email}</td>
                         <td>${tempStudent.gradeId}</td>
-                        <td>${tempStudent.birthDate.toString()}</td>
+                        <td><fmt:formatDate value="${tempStudent.birthDate}" pattern="yyyy-MM-dd" /></td>
                         <td>
                             <a href="${updateLink}">Update</a>
                             |

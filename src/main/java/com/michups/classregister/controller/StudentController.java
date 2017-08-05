@@ -25,8 +25,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/student")
 public class StudentController {
-    @Autowired
-    private ConversionService conversionService;
 
     @Autowired
     private StudentService studentService;
