@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -33,12 +34,11 @@ public class Grade implements Serializable {
     @DateTimeFormat(pattern = "yyyy")
     private Integer year;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "teacher_grade",  joinColumns = {
-            @JoinColumn(name = "grade_id", nullable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "teacher_id",
-                    nullable = false, updatable = false) })
-    public Set<Teacher> teachers = new HashSet<>(0);
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinTable(name = "teacher_grade",
+            joinColumns = @JoinColumn(name = "grade_id", referencedColumnName = "grade_id"),
+            inverseJoinColumns = @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id"))
+    public List<Teacher> teachers ;
 
     @Override
     public String toString() {

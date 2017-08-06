@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -35,9 +36,12 @@ public class Teacher implements Serializable {
     @Column(name = "email")
     private String email;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinTable(name = "teacher_grade",
+            joinColumns = @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id"),
+            inverseJoinColumns = @JoinColumn(name = "grade_id", referencedColumnName = "grade_id"))
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "teachers")
-    public Set<Grade> grades = new HashSet<>(0);
+    public List<Grade> grades ;
 
     @Override
     public String toString() {

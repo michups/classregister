@@ -91,7 +91,7 @@ public class StudentController {
     }
 
     @GetMapping("/delete")
-    public String deleteCUstomer(@RequestParam("studentId") int id,
+    public String deleteStudent(@RequestParam("studentId") int id,
                                     Model model){
 
         studentService.delete(id);
