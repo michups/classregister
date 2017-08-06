@@ -40,6 +40,7 @@ public class TeacherServiceImpl implements TeacherService{
     }
 
     @Override
+    @Transactional
     public void saveTeacher(Teacher teacher) {
         teacherDAO.saveTeacher(teacher);
     }
