@@ -37,9 +37,9 @@
         <property name="password" value="t3ach3r" />
 
         <!-- these are connection pool properties for C3P0 -->
-        <property name="initialPoolSize" value="5"/>
+        <property name="initialPoolSize" value="20"/>
         <property name="minPoolSize" value="5" />
-        <property name="maxPoolSize" value="20" />
+        <property name="maxPoolSize" value="50" />
         <property name="maxIdleTime" value="30000" />
     </bean>
 
@@ -66,6 +66,7 @@
 
     <!-- Add support for reading web resources: css, images, js, etc ... -->
     <mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+
     <!-- Add formatters -->
     <mvc:default-servlet-handler/>
     <bean id="conversionService"
@@ -73,6 +74,7 @@
         <property name="formatters">
             <set>
                 <ref bean="gradeFormatter" />
+                <ref bean="teacherFormatter" />
             </set>
         </property>
     </bean>
