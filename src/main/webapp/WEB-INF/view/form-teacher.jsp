@@ -18,7 +18,7 @@
 
     <div id="wrapper">
         <div id="header">
-            <h2>Save Teacher</h2>
+            <h2>Teacher manager</h2>
         </div>
     </div>
 

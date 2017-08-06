@@ -3,14 +3,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Studnets</title>
+    <title>Class Register</title>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 <body>
 
 <div id="container">
     <div id="content">
-        <h1>Class Reagister</h1>
+        <h1>Class Register</h1>
         <hr>
 
         <input type="button" value="Student List"
