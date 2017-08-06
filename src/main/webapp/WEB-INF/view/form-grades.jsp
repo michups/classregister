@@ -12,7 +12,7 @@
 <head>
     <title>Grade manager</title>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/add-customer-style.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/add-element-style.css" />" rel="stylesheet">
 </head>
 <body>
 
@@ -44,8 +44,9 @@
                 </tr>
                 <tr>
                     <td><label>Teachers:</label></td>
-                    <td><form:checkboxes path="teachers" items="${teachers}"
-                                         itemValue="teacherId"/></td>
+
+                    <td><form:checkboxes element="li" path="teachers" items="${teachers}"
+                                                         itemValue="teacherId"/></td>
 
                 </tr>
                 <tr>

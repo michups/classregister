@@ -12,7 +12,7 @@
 <head>
     <title>Save Student</title>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/add-customer-style.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/add-element-style.css" />" rel="stylesheet">
 </head>
 <body>
 
@@ -50,7 +50,7 @@
             <tr>
                 <td><label>Grade:</label></td>
                 <td><form:select path="gradeId">
-                    <form:options items="${grades}" itemLabel="number"
+                    <form:options items="${grades}"
                         itemValue="gradeId"/>
                 </form:select></td>
             </tr>

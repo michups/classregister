@@ -12,7 +12,7 @@
 <head>
     <title>Save Teacher</title>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/add-customer-style.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/add-element-style.css" />" rel="stylesheet">
 </head>
 <body>
 

@@ -50,7 +50,7 @@
                         <td>${tempStudent.lastName}</td>
                         <td>${tempStudent.email}</td>
                         <td>${tempStudent.gradeId}</td>
-                        <td><fmt:formatDate value="${tempStudent.birthDate}" pattern="yyyy-MM-dd" /></td>
+                        <td><fmt:formatDate value="${tempStudent.birthDate}" pattern="dd-MM-yyyy" /></td>
                         <td>
                             <a href="${updateLink}">Update</a>
                             |

@@ -45,8 +45,12 @@ CREATE TABLE teacher_grade (
 	teacher_id INT NOT NULL,
   grade_id INT NOT NULL,
   PRIMARY KEY (teacher_id, grade_id),
-  FOREIGN KEY (teacher_id) REFERENCES teacher (teacher_id),
+  FOREIGN KEY (teacher_id) REFERENCES teacher (teacher_id)
+  ON delete CASCADE
+  ON UPDATE CASCADE,
   FOREIGN KEY (grade_id) REFERENCES grade (grade_id)
+  ON delete CASCADE
+  ON UPDATE CASCADE
 );
 
 INSERT INTO grade (number, alfabet_digit, year) VALUES
