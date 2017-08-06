@@ -14,56 +14,56 @@
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 <body>
-    <div id="wrapper">
-        <div id="header">
-            <h2> Students</h2>
-        </div>
+<div id="wrapper">
+    <div id="header">
+        <h2> Students</h2>
     </div>
-    <div id="container">
-        <div id="content">
+</div>
+<div id="container">
+    <div id="content">
 
-            <input type="button" value="Add Student"
-                   onclick="window.location.href='showFormAdd'; return false;"
-                   class="add-button">
-            <input type="button" value="Go back"
-                   onclick="window.location.href='home'; return false;"
-                   class="add-button">
-            <table>
+        <input type="button" value="Add Student"
+               onclick="window.location.href='showFormAdd'; return false;"
+               class="add-button">
+        <input type="button" value="Go back"
+               onclick="window.location.href='home'; return false;"
+               class="add-button">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Grade</th>
+                <th>Birth Date</th>
+                <th>Action</th>
+            </tr>
+
+            <c:forEach var="tempStudent" items="${students}">
+                <c:url var="updateLink" value="/student/showFormForUpdate">
+                    <c:param name="studentId" value="${tempStudent.studentId}"/>
+                </c:url>
+                <c:url var="deleteLink" value="/student/delete">
+                    <c:param name="studentId" value="${tempStudent.studentId}"/>
+                </c:url>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Grade</th>
-                    <th>Birth Date</th>
-                    <th>Action</th>
+                    <td>${tempStudent.firstName}</td>
+                    <td>${tempStudent.lastName}</td>
+                    <td>${tempStudent.email}</td>
+                    <td>${tempStudent.gradeId}</td>
+                    <td><fmt:formatDate value="${tempStudent.birthDate}" pattern="dd-MM-yyyy"/></td>
+                    <td>
+                        <a href="${updateLink}">Update</a>
+                        |
+                        <a href="${deleteLink}"
+                           onclick="if(!(confirm('Are you sure to delete this student?'))) return false">Delete</a>
+                    </td>
                 </tr>
 
-                <c:forEach var="tempStudent" items="${students}">
-                    <c:url var="updateLink" value="/student/showFormForUpdate">
-                        <c:param name="studentId" value="${tempStudent.studentId}"/>
-                    </c:url>
-                    <c:url var="deleteLink" value="/student/delete">
-                        <c:param name="studentId" value="${tempStudent.studentId}"/>
-                    </c:url>
-                    <tr>
-                        <td>${tempStudent.firstName}</td>
-                        <td>${tempStudent.lastName}</td>
-                        <td>${tempStudent.email}</td>
-                        <td>${tempStudent.gradeId}</td>
-                        <td><fmt:formatDate value="${tempStudent.birthDate}" pattern="dd-MM-yyyy" /></td>
-                        <td>
-                            <a href="${updateLink}">Update</a>
-                            |
-                            <a href="${deleteLink}"
-                            onclick="if(!(confirm('Are you sure to delete this student?'))) return false">Delete</a>
-                        </td>
-                    </tr>
+            </c:forEach>
 
-                </c:forEach>
-
-            </table>
-        </div>
+        </table>
     </div>
+</div>
 
 
 </body>

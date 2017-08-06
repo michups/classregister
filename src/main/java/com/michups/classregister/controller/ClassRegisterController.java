@@ -16,25 +16,25 @@ import java.util.List;
 public class ClassRegisterController {
 
     @GetMapping("/menu")
-    public String goHome(){
+    public String goHome() {
 
         return "home";
     }
 
     @GetMapping("/student")
-    public String goToStudent( ){
+    public String goToStudent() {
 
         return "redirect:/student/list";
     }
 
     @GetMapping("/grade")
-    public String goToGrade( ){
+    public String goToGrade() {
 
         return "redirect:/grade/list";
     }
 
     @GetMapping("/teacher")
-    public String goToTeacher( ){
+    public String goToTeacher() {
 
         return "redirect:/teacher/list";
     }

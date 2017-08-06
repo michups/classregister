@@ -16,51 +16,51 @@
 </head>
 <body>
 
-    <div id="wrapper">
-        <div id="header">
-            <h2>Grade manager</h2>
-        </div>
+<div id="wrapper">
+    <div id="header">
+        <h2>Grade manager</h2>
     </div>
+</div>
 
 
-    <div id="container">
-        <form:form action="saveGrade" modelAttribute="grade" method="POST">
+<div id="container">
+    <form:form action="saveGrade" modelAttribute="grade" method="POST">
 
-            <form:hidden path="gradeId"/>
+        <form:hidden path="gradeId"/>
 
-            <table>
-                <tbody>
-                <tr>
-                    <td><label>Grade number:</label></td>
-                    <td><form:input path="number"/></td>
-                </tr>
-                <tr>
-                    <td><label>Alphabet digit:</label></td>
-                    <td><form:input path="alfabetDigit"/></td>
-                </tr>
-                <tr>
-                    <td><label>Year:</label></td>
-                    <td><form:input path="year"/></td>
-                </tr>
-                <tr>
-                    <td><label>Teachers:</label></td>
+        <table>
+            <tbody>
+            <tr>
+                <td><label>Grade number:</label></td>
+                <td><form:input path="number"/></td>
+            </tr>
+            <tr>
+                <td><label>Alphabet digit:</label></td>
+                <td><form:input path="alfabetDigit"/></td>
+            </tr>
+            <tr>
+                <td><label>Year:</label></td>
+                <td><form:input path="year"/></td>
+            </tr>
+            <tr>
+                <td><label>Teachers:</label></td>
 
-                    <td><form:checkboxes element="li" path="teachers" items="${teachers}"
-                                                         itemValue="teacherId"/></td>
+                <td><form:checkboxes element="li" path="teachers" items="${teachers}"
+                                     itemValue="teacherId"/></td>
 
-                </tr>
-                <tr>
-                    <td><label></label></td>
-                    <td><input type="submit" value="Save" class="save"></td>
-                </tr>
-                </tbody>
-            </table>
-        </form:form>
-        <div style="clear; border;"></div>
-        <p>
-            <a href="${pageContext.request.contextPath}/grade/list">Back to list</a>
-        </p>
-    </div>
+            </tr>
+            <tr>
+                <td><label></label></td>
+                <td><input type="submit" value="Save" class="save"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form:form>
+    <div style="clear; border;"></div>
+    <p>
+        <a href="${pageContext.request.contextPath}/grade/list">Back to list</a>
+    </p>
+</div>
 
 </body>
 </html>

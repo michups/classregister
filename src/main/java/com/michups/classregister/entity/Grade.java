@@ -38,13 +38,12 @@ public class Grade implements Serializable {
     @JoinTable(name = "teacher_grade",
             joinColumns = @JoinColumn(name = "grade_id", referencedColumnName = "grade_id"),
             inverseJoinColumns = @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id"))
-    public List<Teacher> teachers ;
+    public List<Teacher> teachers;
 
     @Override
     public String toString() {
-        return number+alfabetDigit;
+        return number + alfabetDigit;
     }
-
 
 
 }

@@ -14,7 +14,7 @@ import java.util.List;
  * Created by michups on 03.08.17.
  */
 @Service
-public class TeacherServiceImpl implements TeacherService{
+public class TeacherServiceImpl implements TeacherService {
 
     @Autowired
     private TeacherDAO teacherDAO;
@@ -32,11 +32,10 @@ public class TeacherServiceImpl implements TeacherService{
     }
 
 
-
     @Override
     @Transactional
-    public void delete(int id){
-     teacherDAO.delete(id);
+    public void delete(int id) {
+        teacherDAO.delete(id);
     }
 
     @Override

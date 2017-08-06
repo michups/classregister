@@ -51,7 +51,7 @@
                 <td><label>Grade:</label></td>
                 <td><form:select path="gradeId">
                     <form:options items="${grades}"
-                        itemValue="gradeId"/>
+                                  itemValue="gradeId"/>
                 </form:select></td>
             </tr>
             <tr>

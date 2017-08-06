@@ -12,7 +12,10 @@ import java.util.List;
 public interface TeacherService {
 
     public List<Teacher> getTeachers();
+
     public Teacher getTeacher(int id);
+
     public void delete(int id);
+
     public void saveTeacher(Teacher teacher);
 }

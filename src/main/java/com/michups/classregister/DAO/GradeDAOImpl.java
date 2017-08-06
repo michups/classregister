@@ -33,10 +33,10 @@ public class GradeDAOImpl implements GradeDAO {
     public List<Grade> getGrades() {
         Session session = sessionFactory.getCurrentSession();
         Query<Grade> query = session.createQuery("from Grade ",
-                                                    Grade.class);
+                Grade.class);
 
         List<Grade> grade = query.getResultList();
-        for (Grade g : grade){
+        for (Grade g : grade) {
             Hibernate.initialize(g.teachers);
         }
 
@@ -47,7 +47,7 @@ public class GradeDAOImpl implements GradeDAO {
     public Grade getGrade(int id) {
         Session session = sessionFactory.getCurrentSession();
         Grade grade = session.get(Grade.class, id);
-            Hibernate.initialize(grade.teachers);
+        Hibernate.initialize(grade.teachers);
         return grade;
     }
 

@@ -15,7 +15,7 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "student")
-public class Student  implements Serializable {
+public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

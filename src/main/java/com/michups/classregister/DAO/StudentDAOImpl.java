@@ -22,7 +22,7 @@ public class StudentDAOImpl implements StudentDAO {
     private SessionFactory sessionFactory;
 
     @Override
-    public void saveStudent (Student student) {
+    public void saveStudent(Student student) {
         Session session = sessionFactory.getCurrentSession();
 
         session.saveOrUpdate(student);
@@ -36,7 +36,7 @@ public class StudentDAOImpl implements StudentDAO {
                 Student.class);
 
         List<Student> student = query.getResultList();
-        for (Student s : student){
+        for (Student s : student) {
             Hibernate.initialize(s.gradeId);
         }
 

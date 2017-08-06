@@ -32,12 +32,13 @@ public class StudentController {
     private GradeService gradeService;
 
     @GetMapping("/home")
-    public String goHome( ){
+    public String goHome() {
 
         return "redirect:/home/menu";
     }
+
     @GetMapping("/list")
-    public String listStudents(Model model){
+    public String listStudents(Model model) {
 
         List<Student> students = studentService.getStudents();
 
@@ -47,13 +48,13 @@ public class StudentController {
     }
 
     @GetMapping("/showFormAdd")
-    public String showFormAdd(Model model){
+    public String showFormAdd(Model model) {
 
         List<Grade> grades = gradeService.getGrades();
 
         model.addAttribute("grades", grades);
 
-        Student student= new Student();
+        Student student = new Student();
 
         model.addAttribute("student", student);
 
@@ -62,15 +63,14 @@ public class StudentController {
 
     @PostMapping("/saveStudent")
     public String saveStudent(@ModelAttribute("student") Student student,
-                              BindingResult errors){
-        if(errors.hasErrors()){
+                              BindingResult errors) {
+        if (errors.hasErrors()) {
             System.out.println("ERRORR");
             System.out.println(errors);
             for (FieldError error : errors.getFieldErrors()) {
                 System.out.println(new FieldError("someBean", error.getField(), error.getCode()));
             }
-        }
-        else {
+        } else {
             student.toString();
             studentService.saveStudent(student);
         }
@@ -79,7 +79,7 @@ public class StudentController {
 
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("studentId") int id,
-                                    Model model){
+                                    Model model) {
 
         List<Grade> grades = gradeService.getGrades();
         model.addAttribute("grades", grades);
@@ -92,7 +92,7 @@ public class StudentController {
 
     @GetMapping("/delete")
     public String deleteStudent(@RequestParam("studentId") int id,
-                                    Model model){
+                                Model model) {
 
         studentService.delete(id);
 

@@ -16,7 +16,7 @@ import java.sql.DriverManager;
 @WebServlet("/TestDbServlet")
 public class TestDbServlet extends HttpServlet {
 
-    private static final long serialVersionUID =1L;
+    private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,10 +31,10 @@ public class TestDbServlet extends HttpServlet {
         String jdbcURL = "jdbc:mysql://localhost:3306/class_register_db?useSSL=false";
         String driver = "com.mysql.jdbc.Driver";
 
-        try{
+        try {
             PrintWriter out = response.getWriter();
 
-            out.println("Connected to db: "+ jdbcURL);
+            out.println("Connected to db: " + jdbcURL);
 
             Class.forName(driver);
 
@@ -44,7 +44,7 @@ public class TestDbServlet extends HttpServlet {
 
             myConn.close();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException(e);
         }

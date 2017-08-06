@@ -23,7 +23,7 @@ public class TeacherDAOImpl implements TeacherDAO {
     private SessionFactory myTransactionManager;
 
     @Override
-    public void saveTeacher (Teacher teacher) {
+    public void saveTeacher(Teacher teacher) {
         Session session = myTransactionManager.getCurrentSession();
 
         session.saveOrUpdate(teacher);
@@ -38,7 +38,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 
         List<Teacher> teacher = query.getResultList();
 
-        for (Teacher t : teacher){
+        for (Teacher t : teacher) {
             Hibernate.initialize(t.grades);
             Hibernate.initialize(t.mainClass);
         }

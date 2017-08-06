@@ -20,7 +20,7 @@ public class GradeFormatter implements Formatter<Grade> {
 
     @Override
     public String print(Grade grade, Locale locale) {
-        return grade.getNumber()+grade.getAlfabetDigit();
+        return grade.getNumber() + grade.getAlfabetDigit();
     }
 
     @Override

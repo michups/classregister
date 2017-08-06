@@ -16,59 +16,59 @@
 </head>
 <body>
 
-    <div id="wrapper">
-        <div id="header">
-            <h2>Teacher manager</h2>
-        </div>
+<div id="wrapper">
+    <div id="header">
+        <h2>Teacher manager</h2>
     </div>
+</div>
 
 
-    <div id="container">
-        <form:form action="saveTeacher" modelAttribute="teacher" method="POST">
+<div id="container">
+    <form:form action="saveTeacher" modelAttribute="teacher" method="POST">
 
-            <form:hidden path="teacherId"/>
+        <form:hidden path="teacherId"/>
 
-            <table>
-                <tbody>
-                    <tr>
-                        <td><label>First name:</label></td>
-                        <td><form:input path="firstName"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Last name:</label></td>
-                        <td><form:input path="lastName"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Email:</label></td>
-                        <td><form:input path="email"/></td>
-                    </tr>
+        <table>
+            <tbody>
+            <tr>
+                <td><label>First name:</label></td>
+                <td><form:input path="firstName"/></td>
+            </tr>
+            <tr>
+                <td><label>Last name:</label></td>
+                <td><form:input path="lastName"/></td>
+            </tr>
+            <tr>
+                <td><label>Email:</label></td>
+                <td><form:input path="email"/></td>
+            </tr>
 
-                    <tr>
-                        <td><label>Main class:</label></td>
-                        <td><form:select path="mainClass">
-                            <form:options items="${grades}"
-                                          itemValue="gradeId"/>
-                        </form:select></td>
-                    </tr>
+            <tr>
+                <td><label>Main class:</label></td>
+                <td><form:select path="mainClass">
+                    <form:options items="${grades}"
+                                  itemValue="gradeId"/>
+                </form:select></td>
+            </tr>
 
-                    <tr>
-                        <td><label>Grades:</label></td>
-                        <td><form:checkboxes path="grades" items="${grades}"
-                            itemValue="gradeId"/></td>
+            <tr>
+                <td><label>Grades:</label></td>
+                <td><form:checkboxes path="grades" items="${grades}"
+                                     itemValue="gradeId"/></td>
 
-                    </tr>
-                    <tr>
-                        <td><label></label></td>
-                        <td><input type="submit" value="Save" class="save"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </form:form>
-        <div style="clear; border;"></div>
-        <p>
-            <a href="${pageContext.request.contextPath}/teacher/list">Back to List</a>
-        </p>
-    </div>
+            </tr>
+            <tr>
+                <td><label></label></td>
+                <td><input type="submit" value="Save" class="save"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form:form>
+    <div style="clear; border;"></div>
+    <p>
+        <a href="${pageContext.request.contextPath}/teacher/list">Back to List</a>
+    </p>
+</div>
 
 </body>
 </html>

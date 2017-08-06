@@ -11,7 +11,10 @@ import java.util.List;
 public interface StudentService {
 
     public List<Student> getStudents();
+
     public Student getStudent(int id);
+
     public void delete(int id);
+
     public void saveStudent(Student student);
 }

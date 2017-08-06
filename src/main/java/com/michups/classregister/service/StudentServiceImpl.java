@@ -14,32 +14,32 @@ import java.util.List;
  * Created by michups on 03.08.17.
  */
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentDAO studentDAO;
 
     @Override
     @Transactional
-    public List<Student> getStudents(){
+    public List<Student> getStudents() {
         return studentDAO.getStudents();
     }
 
     @Override
     @Transactional
-    public Student getStudent(int id){
+    public Student getStudent(int id) {
         return studentDAO.getStudent(id);
     }
 
     @Override
     @Transactional
-    public void delete(int id){
+    public void delete(int id) {
         studentDAO.delete(id);
     }
 
     @Override
     @Transactional
-    public void saveStudent(Student student){
+    public void saveStudent(Student student) {
         studentDAO.saveStudent(student);
     }
 }

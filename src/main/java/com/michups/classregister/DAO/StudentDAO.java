@@ -11,8 +11,10 @@ import java.util.List;
 public interface StudentDAO {
 
     public List<Student> getStudents();
+
     public void saveStudent(Student student);
-    public void  delete(int id);
+
+    public void delete(int id);
 
     public Student getStudent(int id);
 }

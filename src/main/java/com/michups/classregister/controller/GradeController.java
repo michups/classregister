@@ -32,12 +32,13 @@ public class GradeController {
     private GradeService gradeService;
 
     @GetMapping("/home")
-    public String goHome( ){
+    public String goHome() {
 
         return "redirect:/home/menu";
     }
+
     @GetMapping("/list")
-    public String listGrades(Model model){
+    public String listGrades(Model model) {
 
         List<Grade> grades = gradeService.getGrades();
 
@@ -48,7 +49,7 @@ public class GradeController {
     }
 
     @GetMapping("/showFormAdd")
-    public String showFormAdd(Model model){
+    public String showFormAdd(Model model) {
 
         List<Teacher> teachers = teacherService.getTeachers();
         model.addAttribute("teachers", teachers);
@@ -60,15 +61,14 @@ public class GradeController {
 
     @PostMapping("/saveGrade")
     public String saveGrade(@ModelAttribute("grade") Grade grade,
-                              BindingResult errors){
-        if(errors.hasErrors()){
+                            BindingResult errors) {
+        if (errors.hasErrors()) {
             System.out.println("ERRORR");
             System.out.println(errors);
             for (FieldError error : errors.getFieldErrors()) {
                 System.out.println(new FieldError("someBean", error.getField(), error.getCode()));
             }
-        }
-        else {
+        } else {
             gradeService.saveGrade(grade);
         }
         return "redirect:/grade/list";
@@ -76,7 +76,7 @@ public class GradeController {
 
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("gradeId") int id,
-                                    Model model){
+                                    Model model) {
 
         List<Teacher> teachers = teacherService.getTeachers();
         model.addAttribute("teachers", teachers);
@@ -89,11 +89,11 @@ public class GradeController {
 
     @GetMapping("/delete")
     public String deleteGrade(@RequestParam("gradeId") int id,
-                                    Model model){
+                              Model model) {
 
         try {
             gradeService.delete(id);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "redirect:/grade/list";

@@ -41,10 +41,10 @@ public class Teacher implements Serializable {
             joinColumns = @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "grade_id", referencedColumnName = "grade_id"))
 
-    public List<Grade> grades ;
+    public List<Grade> grades;
 
     @Override
     public String toString() {
-        return  firstName +" "+ lastName ;
+        return firstName + " " + lastName;
     }
 }

@@ -10,7 +10,10 @@ import java.util.List;
 public interface GradeService {
 
     public List<Grade> getGrades();
+
     public Grade getGrade(int id);
+
     public void delete(int id);
+
     public void saveGrade(Grade grade);
 }

@@ -10,8 +10,10 @@ import java.util.List;
 public interface GradeDAO {
 
     public List<Grade> getGrades();
+
     public void saveGrade(Grade grade);
-    public void  delete(int id);
+
+    public void delete(int id);
 
     public Grade getGrade(int id);
 }

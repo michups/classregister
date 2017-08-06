@@ -32,14 +32,15 @@ public class TeacherController {
     private TeacherService teacherService;
 
     @GetMapping("/home")
-    public String goHome( ){
+    public String goHome() {
 
         return "redirect:/home/menu";
     }
-    @GetMapping("/list")
-    public String listTeachers(Model model){
 
-        List<Teacher> teachers  = teacherService.getTeachers();
+    @GetMapping("/list")
+    public String listTeachers(Model model) {
+
+        List<Teacher> teachers = teacherService.getTeachers();
 
         model.addAttribute("teachers", teachers);
 
@@ -48,27 +49,26 @@ public class TeacherController {
     }
 
     @GetMapping("/showFormAdd")
-    public String showFormAdd(Model model){
+    public String showFormAdd(Model model) {
 
         List<Grade> grades = gradeService.getGrades();
         model.addAttribute("grades", grades);
 
-        Teacher teacher= new Teacher();
+        Teacher teacher = new Teacher();
         model.addAttribute("teacher", teacher);
         return "form-teacher";
     }
 
     @PostMapping("/saveTeacher")
     public String saveStudent(@ModelAttribute("teacher") Teacher teacher,
-                              BindingResult errors){
-        if(errors.hasErrors()){
+                              BindingResult errors) {
+        if (errors.hasErrors()) {
             System.out.println("ERRORR");
             System.out.println(errors);
             for (FieldError error : errors.getFieldErrors()) {
                 System.out.println(new FieldError("someBean", error.getField(), error.getCode()));
             }
-        }
-        else {
+        } else {
             teacher.toString();
             teacherService.saveTeacher(teacher);
         }
@@ -77,7 +77,7 @@ public class TeacherController {
 
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("teacherId") int id,
-                                    Model model){
+                                    Model model) {
 
         List<Grade> grades = gradeService.getGrades();
         model.addAttribute("grades", grades);
@@ -90,7 +90,7 @@ public class TeacherController {
 
     @GetMapping("/delete")
     public String deleteTeacher(@RequestParam("teacherId") int id,
-                                    Model model){
+                                Model model) {
 
         teacherService.delete(id);
 
